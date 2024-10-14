@@ -5,9 +5,9 @@
 
 // ************************************************************************************************
 float3_t float3_create(
-	const float x,
-	const float y,
-	const float z
+	const real x,
+	const real y,
+	const real z
 )
 {
 	float3_t result;

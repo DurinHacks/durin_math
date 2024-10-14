@@ -11,9 +11,9 @@
 */
 typedef struct
 {
-	float x; /**< The x component of the vector */
-	float y; /**< The y component of the vector */
-	float z; /**< The z component of the vector */
+	real x; /**< The x component of the vector */
+	real y; /**< The y component of the vector */
+	real z; /**< The z component of the vector */
 } float3_t;
 
 /**
@@ -24,9 +24,9 @@ typedef struct
 * @return The created vector
 */
 float3_t float3_create(
-	const float x,
-	const float y,
-	const float z
+	const real x,
+	const real y,
+	const real z
 );
 
 /**

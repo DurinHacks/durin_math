@@ -11,10 +11,10 @@
 */
 typedef struct
 {
-	float w; /**< The w component of the vector */
-	float x; /**< The x component of the vector */
-	float y; /**< The y component of the vector */
-	float z; /**< The z component of the vector */
+	real w; /**< The w component of the vector */
+	real x; /**< The x component of the vector */
+	real y; /**< The y component of the vector */
+	real z; /**< The z component of the vector */
 } float4_t;
 
 /**
@@ -26,7 +26,12 @@ typedef struct
 * @param[in] z The z component of the vector
 * @return The created float4_t
 */
-float4_t float4_create(const real w, const real x, const real y, const real z);
+float4_t float4_create(
+	const real w,
+	const real x,
+	const real y,
+	const real z
+);
 
 /**
 * @brief float4_t addition
@@ -35,7 +40,10 @@ float4_t float4_create(const real w, const real x, const real y, const real z);
 * @param[in] b The second float4_t
 * @return The result of the addition
 */
-float4_t float4_add(const float4_t a, const float4_t b);
+float4_t float4_add(
+	const float4_t a,
+	const float4_t b
+);
 
 /**
 * @brief float4_t subtraction
@@ -44,7 +52,10 @@ float4_t float4_add(const float4_t a, const float4_t b);
 * @param[in] b The second float4_t
 * @return The result of the subtraction
 */
-float4_t float4_sub(const float4_t a, const float4_t b);
+float4_t float4_sub(
+	const float4_t a,
+	const float4_t b
+);
 
 /**
 * @brief float4_t multiplication
@@ -53,7 +64,10 @@ float4_t float4_sub(const float4_t a, const float4_t b);
 * @param[in] b The second float4_t
 * @return The result of the multiplication
 */
-float4_t float4_mul(const float4_t a, const float4_t b);
+float4_t float4_mul(
+	const float4_t a,
+	const float4_t b
+);
 
 /**
 * @brief float4_t division
@@ -62,7 +76,10 @@ float4_t float4_mul(const float4_t a, const float4_t b);
 * @param[in] b The second float4_t
 * @return The result of the division
 */
-float4_t float4_div(const float4_t a, const float4_t b);
+float4_t float4_div(
+	const float4_t a,
+	const float4_t b
+);
 
 /**
 * @brief float4_t multiplication with a scalar
@@ -71,7 +88,10 @@ float4_t float4_div(const float4_t a, const float4_t b);
 * @param[in] scalar The scalar
 * @return The result of the multiplication
 */
-float4_t float4_mul_scalar(const float4_t a, real scalar);
+float4_t float4_mul_scalar(
+	const float4_t a,
+	real scalar
+);
 
 /**
 * @brief float4_t division with a scalar
@@ -80,7 +100,10 @@ float4_t float4_mul_scalar(const float4_t a, real scalar);
 * @param[in] scalar The scalar
 * @return The result of the division
 */
-float4_t float4_div_scalar(const float4_t a, real scalar);
+float4_t float4_div_scalar(
+	const float4_t a,
+	real scalar
+);
 
 /**
 * @brief float4_t quaternion multiplication
@@ -89,7 +112,10 @@ float4_t float4_div_scalar(const float4_t a, real scalar);
 * @param[in] b The float4_t
 * @return The result of the multiplication
 */
-float4_t float4_mul_float4(const float4_t a, const float4_t b);
+float4_t float4_mul_float4(
+	const float4_t a,
+	const float4_t b
+);
 
 /**
 * @brief float4_t quaternion conjugate
@@ -97,7 +123,9 @@ float4_t float4_mul_float4(const float4_t a, const float4_t b);
 * @param[in] q The float4_t
 * @return The conjugate of the quaternion
 */
-float4_t float4_conjugate(const float4_t q);
+float4_t float4_conjugate(
+	const float4_t q
+);
 
 /**
 * @brief float4_t quaternion rotation
@@ -106,7 +134,10 @@ float4_t float4_conjugate(const float4_t q);
 * @param[in] quat The quaternion
 * @return The rotated vector
 */
-float3_t float4_rotate_float3(const float3_t vec, const float4_t quat);
+float3_t float4_rotate_float3(
+	const float3_t vec,
+	const float4_t quat
+);
 
 /**
 * @brief float4_t quaternion magnitude
@@ -114,7 +145,9 @@ float3_t float4_rotate_float3(const float3_t vec, const float4_t quat);
 * @param[in] q The float4_t
 * @return The magnitude of the quaternion
 */
-real float4_magnitude(const float4_t q);
+real float4_magnitude(
+	const float4_t q
+);
 
 /**
 * @brief float4_t quaternion to angle-axis
