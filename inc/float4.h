@@ -6,27 +6,27 @@
 #include "basetypes.h"
 
 /**
-* @brief Float3 structure
-* @details This structure is used to represent a 3D vector in the game.
+* @brief Float4 structure
+* @details This structure is used to represent a 4D vector in the game.
 */
 typedef struct
 {
+	float w; /**< The w component of the vector */
 	float x; /**< The x component of the vector */
 	float y; /**< The y component of the vector */
 	float z; /**< The z component of the vector */
-	float w; /**< The w component of the vector */
 } float4_t;
 
 /**
 * @brief float4_t constructor
 * @details This function is used to create a float4_t with the given values.
+* @param[in] w The w component of the vector
 * @param[in] x The x component of the vector
 * @param[in] y The y component of the vector
 * @param[in] z The z component of the vector
-* @param[in] w The w component of the vector
 * @return The created float4_t
 */
-float4_t float4_create(const real x, const real y, const real z, const real w);
+float4_t float4_create(const real w, const real x, const real y, const real z);
 
 /**
 * @brief float4_t addition
