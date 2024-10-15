@@ -35,24 +35,6 @@ float3_t float3_sub(const float3_t a, const float3_t b)
 	return result;
 }
 // ************************************************************************************************
-float3_t float3_mul(const float3_t a, const float3_t b)
-{
-	float3_t result;
-	result.x = a.x * b.x;
-	result.y = a.y * b.y;
-	result.z = a.z * b.z;
-	return result;
-}
-// ************************************************************************************************
-float3_t float3_div(const float3_t a, const float3_t b)
-{
-	float3_t result;
-	result.x = a.x / b.x;
-	result.y = a.y / b.y;
-	result.z = a.z / b.z;
-	return result;
-}
-// ************************************************************************************************
 float3_t float3_scale(const float3_t a, const real scalar)
 {
 	float3_t result;

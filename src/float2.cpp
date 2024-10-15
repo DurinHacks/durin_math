@@ -20,22 +20,6 @@ float2_t float2_sub(const float2_t a, const float2_t b)
 	return result;
 }
 // ************************************************************************************************
-float2_t float2_mul(const float2_t a, const float2_t b)
-{
-	float2_t result;
-	result.x = a.x * b.x;
-	result.y = a.y * b.y;
-	return result;
-}
-// ************************************************************************************************
-float2_t float2_div(const float2_t a, const float2_t b)
-{
-	float2_t result;
-	result.x = a.x / b.x;
-	result.y = a.y / b.y;
-	return result;
-}
-// ************************************************************************************************
 float2_t float2_scale(const float2_t a, const real scalar)
 {
 	float2_t result;

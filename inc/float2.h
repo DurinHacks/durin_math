@@ -32,22 +32,6 @@ float2_t float2_add(const float2_t a, const float2_t b);
 float2_t float2_sub(const float2_t a, const float2_t b);
 
 /**
-* @brief Multiplies two float2_t vectors
-* @param[in] a The first vector
-* @param[in] b The second vector
-* @return The product of the two vectors
-*/
-float2_t float2_mul(const float2_t a, const float2_t b);
-
-/**
-* @brief Divides two float2_t vectors
-* @param[in] a The first vector
-* @param[in] b The second vector
-* @return The quotient of the two vectors
-*/
-float2_t float2_div(const float2_t a, const float2_t b);
-
-/**
 * @brief Scales a float2_t vector
 * @param[in] a The vector to scale
 * @param[in] scalar The scalar to multiply the vector by

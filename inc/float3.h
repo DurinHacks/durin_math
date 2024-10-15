@@ -46,22 +46,6 @@ float3_t float3_add(const float3_t a, const float3_t b);
 float3_t float3_sub(const float3_t a, const float3_t b);
 
 /**
-* @brief float3_mul function that multiplies two float3_t vectors
-* @param[in] a The first vector
-* @param[in] b The second vector
-* @return The product of the two vectors
-*/
-float3_t float3_mul(const float3_t a, const float3_t b);
-
-/**
-* @brief float3_div function that divides two float3_t vectors
-* @param[in] a The first vector
-* @param[in] b The second vector
-* @return The quotient of the two vectors
-*/
-float3_t float3_div(const float3_t a, const float3_t b);
-
-/**
 * @brief float3_scale function that scales a float3_t vector by a scalar
 * @param[in] a The vector
 * @param[in] scalar The scalar
