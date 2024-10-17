@@ -9,7 +9,7 @@
 * @brief Float3 structure
 * @details This structure is used to represent a 3D vector in the game.
 */
-typedef struct
+typedef struct float3_t
 {
 	real x; /**< The x component of the vector */
 	real y; /**< The y component of the vector */

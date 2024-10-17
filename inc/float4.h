@@ -9,7 +9,7 @@
 * @brief Float4 structure
 * @details This structure is used to represent a 4D vector in the game.
 */
-typedef struct
+typedef struct float4_t
 {
 	real w; /**< The w component of the vector */
 	real x; /**< The x component of the vector */

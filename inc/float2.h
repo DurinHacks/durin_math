@@ -9,7 +9,7 @@
 * @brief Float2 structure
 * @details This structure is used to represent a 2D vector in the game.
 */
-typedef struct
+typedef struct float2_t
 {
 	real x; /**< The x component of the vector */
 	real y; /**< The y component of the vector */
