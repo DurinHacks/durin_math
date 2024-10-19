@@ -35,7 +35,10 @@ float3_t float3_create(
 * @param[in] b The second vector
 * @return The sum of the two vectors
 */
-float3_t float3_add(const float3_t a, const float3_t b);
+float3_t float3_add(
+	const float3_t a,
+	const float3_t b
+);
 
 /**
 * @brief float3_sub function that subtracts two float3_t vectors
@@ -43,7 +46,10 @@ float3_t float3_add(const float3_t a, const float3_t b);
 * @param[in] b The second vector
 * @return The difference of the two vectors
 */
-float3_t float3_sub(const float3_t a, const float3_t b);
+float3_t float3_sub(
+	const float3_t a,
+	const float3_t b
+);
 
 /**
 * @brief float3_scale function that scales a float3_t vector by a scalar
@@ -51,7 +57,10 @@ float3_t float3_sub(const float3_t a, const float3_t b);
 * @param[in] scalar The scalar
 * @return The scaled vector
 */
-float3_t float3_scale(const float3_t a, const f32 scalar);
+float3_t float3_scale(
+	const float3_t a,
+	const f32 scalar
+);
 
 /**
 * @brief float3_dot function that calculates the dot product of two float3_t vectors
@@ -59,7 +68,10 @@ float3_t float3_scale(const float3_t a, const f32 scalar);
 * @param[in] b The second vector
 * @return The dot product of the two vectors
 */
-f32 float3_dot(const float3_t a, const float3_t b);
+f32 float3_dot(
+	const float3_t a,
+	const float3_t b
+);
 
 /**
 * @brief float3_cross function that calculates the cross product of two float3_t vectors
@@ -67,21 +79,28 @@ f32 float3_dot(const float3_t a, const float3_t b);
 * @param[in] b The second vector
 * @return The cross product of the two vectors
 */
-float3_t float3_cross(const float3_t a, const float3_t b);
+float3_t float3_cross(
+	const float3_t a,
+	const float3_t b
+);
 
 /**
 * @brief float3_length function that calculates the length of a float3_t vector
 * @param[in] a The vector
 * @return The length of the vector
 */
-f32 float3_length(const float3_t a);
+f32 float3_length(
+	const float3_t a
+);
 
 /**
 * @brief float3_sqr_length function that calculates the squared length of a float3_t vector
 * @param[in] a The vector
 * @return The squared length of the vector
 */
-f32 float3_sqr_length(const float3_t a);
+f32 float3_sqr_length(
+	const float3_t a
+);
 
 /**
 * @brief float3_distance function that calculates the distance between two float3_t vectors
@@ -89,7 +108,10 @@ f32 float3_sqr_length(const float3_t a);
 * @param[in] b The second vector
 * @return The distance between the two vectors
 */
-f32 float2_distance(const float3_t a, const float3_t b);
+f32 float2_distance(
+	const float3_t a,
+	const float3_t b
+);
 
 /**
 * @brief float3_angle function that calculates the angle between two float3_t vectors
@@ -97,13 +119,18 @@ f32 float2_distance(const float3_t a, const float3_t b);
 * @param[in] b The second vector
 * @return The angle between the two vectors
 */
-f32 float3_angle(const float3_t a, const float3_t b);
+f32 float3_angle(
+	const float3_t a,
+	const float3_t b
+);
 
 /**
 * @brief float3_normalize function that normalizes a float3_t vector
 * @param[in] a The vector
 * @return The normalized vector
 */
-float3_t float3_normalize(const float3_t a);
+float3_t float3_normalize(
+	const float3_t a
+);
 
 #endif // __MATH_FLOAT3_H__

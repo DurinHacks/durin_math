@@ -4,6 +4,7 @@
 // EXTERNAL INCLUDES
 // INTERNAL INCLUDES
 #include "basetypes.h"
+#include "float3.h"
 
 /**
 * @brief Float4 structure
