@@ -11,10 +11,10 @@
 */
 typedef struct float4_t
 {
-	real w; /**< The w component of the vector */
-	real x; /**< The x component of the vector */
-	real y; /**< The y component of the vector */
-	real z; /**< The z component of the vector */
+	f32 w; /**< The w component of the vector */
+	f32 x; /**< The x component of the vector */
+	f32 y; /**< The y component of the vector */
+	f32 z; /**< The z component of the vector */
 } float4_t;
 
 /**
@@ -27,10 +27,10 @@ typedef struct float4_t
 * @return The created float4_t
 */
 float4_t float4_create(
-	const real w,
-	const real x,
-	const real y,
-	const real z
+	const f32 w,
+	const f32 x,
+	const f32 y,
+	const f32 z
 );
 
 /**
@@ -90,7 +90,7 @@ float4_t float4_div(
 */
 float4_t float4_mul_scalar(
 	const float4_t a,
-	real scalar
+	f32 scalar
 );
 
 /**
@@ -102,7 +102,7 @@ float4_t float4_mul_scalar(
 */
 float4_t float4_div_scalar(
 	const float4_t a,
-	real scalar
+	f32 scalar
 );
 
 /**
@@ -145,7 +145,7 @@ float3_t float4_rotate_float3(
 * @param[in] q The float4_t
 * @return The magnitude of the quaternion
 */
-real float4_magnitude(
+f32 float4_magnitude(
 	const float4_t q
 );
 
@@ -158,7 +158,7 @@ real float4_magnitude(
 */
 void float4_to_angle_axis(
 	const float4_t q,
-	real* angle,
+	f32* angle,
 	float3_t* axis
 );
 

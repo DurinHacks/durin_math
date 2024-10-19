@@ -11,9 +11,9 @@
 */
 typedef struct float3_t
 {
-	real x; /**< The x component of the vector */
-	real y; /**< The y component of the vector */
-	real z; /**< The z component of the vector */
+	f32 x; /**< The x component of the vector */
+	f32 y; /**< The y component of the vector */
+	f32 z; /**< The z component of the vector */
 } float3_t;
 
 /**
@@ -24,9 +24,9 @@ typedef struct float3_t
 * @return The created vector
 */
 float3_t float3_create(
-	const real x,
-	const real y,
-	const real z
+	const f32 x,
+	const f32 y,
+	const f32 z
 );
 
 /**
@@ -51,7 +51,7 @@ float3_t float3_sub(const float3_t a, const float3_t b);
 * @param[in] scalar The scalar
 * @return The scaled vector
 */
-float3_t float3_scale(const float3_t a, const real scalar);
+float3_t float3_scale(const float3_t a, const f32 scalar);
 
 /**
 * @brief float3_dot function that calculates the dot product of two float3_t vectors
@@ -59,7 +59,7 @@ float3_t float3_scale(const float3_t a, const real scalar);
 * @param[in] b The second vector
 * @return The dot product of the two vectors
 */
-real float3_dot(const float3_t a, const float3_t b);
+f32 float3_dot(const float3_t a, const float3_t b);
 
 /**
 * @brief float3_cross function that calculates the cross product of two float3_t vectors
@@ -74,14 +74,14 @@ float3_t float3_cross(const float3_t a, const float3_t b);
 * @param[in] a The vector
 * @return The length of the vector
 */
-real float3_length(const float3_t a);
+f32 float3_length(const float3_t a);
 
 /**
 * @brief float3_sqr_length function that calculates the squared length of a float3_t vector
 * @param[in] a The vector
 * @return The squared length of the vector
 */
-real float3_sqr_length(const float3_t a);
+f32 float3_sqr_length(const float3_t a);
 
 /**
 * @brief float3_distance function that calculates the distance between two float3_t vectors
@@ -89,7 +89,7 @@ real float3_sqr_length(const float3_t a);
 * @param[in] b The second vector
 * @return The distance between the two vectors
 */
-real float2_distance(const float3_t a, const float3_t b);
+f32 float2_distance(const float3_t a, const float3_t b);
 
 /**
 * @brief float3_angle function that calculates the angle between two float3_t vectors
@@ -97,7 +97,7 @@ real float2_distance(const float3_t a, const float3_t b);
 * @param[in] b The second vector
 * @return The angle between the two vectors
 */
-real float3_angle(const float3_t a, const float3_t b);
+f32 float3_angle(const float3_t a, const float3_t b);
 
 /**
 * @brief float3_normalize function that normalizes a float3_t vector

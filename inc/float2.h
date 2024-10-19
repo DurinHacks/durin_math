@@ -11,8 +11,8 @@
 */
 typedef struct float2_t
 {
-	real x; /**< The x component of the vector */
-	real y; /**< The y component of the vector */
+	f32 x; /**< The x component of the vector */
+	f32 y; /**< The y component of the vector */
 } float2_t;
 
 /**
@@ -37,7 +37,7 @@ float2_t float2_sub(const float2_t a, const float2_t b);
 * @param[in] scalar The scalar to multiply the vector by
 * @return The scaled vector
 */
-float2_t float2_scale(const float2_t a, const real scalar);
+float2_t float2_scale(const float2_t a, const f32 scalar);
 
 /**
 * @brief Calculates the dot product of two float2_t vectors
@@ -45,7 +45,7 @@ float2_t float2_scale(const float2_t a, const real scalar);
 * @param[in] b The second vector
 * @return The dot product of the two vectors
 */
-real float2_dot(const float2_t a, const float2_t b);
+f32 float2_dot(const float2_t a, const float2_t b);
 
 /**
 * @brief Calculates the cross product of two float2_t vectors
@@ -53,21 +53,21 @@ real float2_dot(const float2_t a, const float2_t b);
 * @param[in] b The second vector
 * @return The cross product of the two vectors
 */
-real float2_cross(const float2_t a, const float2_t b);
+f32 float2_cross(const float2_t a, const float2_t b);
 
 /**
 * @brief Calculates the length of a float2_t vector
 * @param[in] a The vector to calculate the length of
 * @return The length of the vector
 */
-real float2_length(const float2_t a);
+f32 float2_length(const float2_t a);
 
 /**
 * @brief Calculates the squared length of a float2_t vector
 * @param[in] a The vector to calculate the squared length of
 * @return The squared length of the vector
 */
-real float2_sqr_length(const float2_t a);
+f32 float2_sqr_length(const float2_t a);
 
 /**
 * @brief Calculates the distance between two float2_t vectors
@@ -75,7 +75,7 @@ real float2_sqr_length(const float2_t a);
 * @param[in] b The second vector
 * @return The distance between the two vectors
 */
-real float2_distance(const float2_t a, const float2_t b);
+f32 float2_distance(const float2_t a, const float2_t b);
 
 /**
 * @brief Calculates the angle between two float2_t vectors
@@ -83,7 +83,7 @@ real float2_distance(const float2_t a, const float2_t b);
 * @param[in] b The second vector
 * @return The angle between the two vectors
 */
-real float2_angle(const float2_t a, const float2_t b);
+f32 float2_angle(const float2_t a, const float2_t b);
 
 /**
 * @brief Normalizes a float2_t vector

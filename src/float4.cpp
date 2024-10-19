@@ -5,7 +5,7 @@
 #include "float4.h"
 
 // ************************************************************************************************
-float4_t float4_create(const real x, const real y, const real z, const real w)
+float4_t float4_create(const f32 x, const f32 y, const f32 z, const f32 w)
 {
 	float4_t result;
 	result.x = x;
@@ -55,7 +55,7 @@ float4_t float4_div(const float4_t a, const float4_t b)
 	return result;
 }
 // ************************************************************************************************
-float4_t float4_mul_scalar(const float4_t a, const real scalar)
+float4_t float4_mul_scalar(const float4_t a, const f32 scalar)
 {
 	float4_t result;
 	result.x = a.x * scalar;
@@ -65,7 +65,7 @@ float4_t float4_mul_scalar(const float4_t a, const real scalar)
 	return result;
 }
 // ************************************************************************************************
-float4_t float4_div_scalar(const float4_t a, const real scalar)
+float4_t float4_div_scalar(const float4_t a, const f32 scalar)
 {
 	float4_t result;
 	result.x = a.x / scalar;
@@ -106,14 +106,14 @@ float3_t float4_rotate_float3(const float3_t vec, const float4_t quat)
 	return float3_add(vec, float3_add(uv, uuv));
 }
 // ************************************************************************************************
-real float4_magnitude(const float4_t q)
+f32 float4_magnitude(const float4_t q)
 {
 	return sqrtf(q.x * q.x + q.y * q.y + q.z * q.z + q.w * q.w);
 }
 // ************************************************************************************************
 void float4_to_angle_axis(
 	const float4_t q,
-	real* angle,
+	f32* angle,
 	float3_t* axis
 )
 {
@@ -122,11 +122,11 @@ void float4_to_angle_axis(
 		return;
 	}
 
-	real sqr_length = q.x * q.x + q.y * q.y + q.z * q.z;
+	f32 sqr_length = q.x * q.x + q.y * q.y + q.z * q.z;
 	if (sqr_length > 0.0f)
 	{
 		*angle = 2.0f * acosf(q.w);
-		real inv_length = 1.0f / sqrtf(sqr_length);
+		f32 inv_length = 1.0f / sqrtf(sqr_length);
 		axis->x = q.x * inv_length;
 		axis->y = q.y * inv_length;
 		axis->z = q.z * inv_length;

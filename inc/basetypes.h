@@ -36,18 +36,4 @@ typedef u8 byte;
 
 static_assert(sizeof(byte) == 1, "byte is not 1 byte");
 
-#ifndef DOUBLE_PRECISION
-	typedef f32 real;
-	constexpr real REAL_MIN = FLT_MIN;
-	constexpr real REAL_MAX = FLT_MAX;
-	constexpr real REAL_EPSILON = FLT_EPSILON;
-	static_assert(sizeof(real) == sizeof(f32), "real is not 4 bytes");
-#else
-	typedef f64 real;
-	constexpr real REAL_MIN = DBL_MIN;
-	constexpr real REAL_MAX = DBL_MAX;
-	constexpr real REAL_EPSILON = DBL_EPSILON;
-	static_assert(sizeof(real) == sizeof(f64), "real is not 8 bytes");
-#endif // DOUBLE_PRECISION
-
 #endif // __UTILS_BASETYPES_H__

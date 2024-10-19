@@ -5,9 +5,9 @@
 
 // ************************************************************************************************
 float3_t float3_create(
-	const real x,
-	const real y,
-	const real z
+	const f32 x,
+	const f32 y,
+	const f32 z
 )
 {
 	float3_t result;
@@ -35,7 +35,7 @@ float3_t float3_sub(const float3_t a, const float3_t b)
 	return result;
 }
 // ************************************************************************************************
-float3_t float3_scale(const float3_t a, const real scalar)
+float3_t float3_scale(const float3_t a, const f32 scalar)
 {
 	float3_t result;
 	result.x = a.x * scalar;
@@ -44,7 +44,7 @@ float3_t float3_scale(const float3_t a, const real scalar)
 	return result;
 }
 // ************************************************************************************************
-real float3_dot(const float3_t a, const float3_t b)
+f32 float3_dot(const float3_t a, const float3_t b)
 {
 	return a.x * b.x + a.y * b.y + a.z * b.z;
 }
@@ -58,29 +58,29 @@ float3_t float3_cross(const float3_t a, const float3_t b)
 	return result;
 }
 // ************************************************************************************************
-real float3_length(const float3_t a)
+f32 float3_length(const float3_t a)
 {
 	return sqrtf(a.x * a.x + a.y * a.y + a.z * a.z);
 }
 // ************************************************************************************************
-real float3_sqr_length(const float3_t a)
+f32 float3_sqr_length(const float3_t a)
 {
 	return a.x * a.x + a.y * a.y + a.z * a.z;
 }
 // ************************************************************************************************
-real float2_distance(const float3_t a, const float3_t b)
+f32 float2_distance(const float3_t a, const float3_t b)
 {
 	return float3_length(float3_sub(a, b));
 }
 // ************************************************************************************************
-real float3_angle(const float3_t a, const float3_t b)
+f32 float3_angle(const float3_t a, const float3_t b)
 {
 	return acosf(float3_dot(a, b) / (float3_length(a) * float3_length(b)));
 }
 // ************************************************************************************************
 float3_t float3_normalize(const float3_t a)
 {
-	real length = float3_length(a);
+	f32 length = float3_length(a);
 	float3_t result;
 	result.x = a.x / length;
 	result.y = a.y / length;
