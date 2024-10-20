@@ -18,9 +18,9 @@ typedef struct float4x4_t
 		float4_t rows[4];		/**< The rows of the matrix */
 		struct
 		{
-			float4_t forward;	/**< The forward vector */
-			float4_t right;		/**< The right vector */
-			float4_t up;		/**< The up vector */
+			float4_t right;		/**< The right vector	(DX11 => -X)*/
+			float4_t forward;	/**< The forward vector	(DX11 => +Y)*/
+			float4_t up;		/**< The up vector		(DX11 => +Z)*/
 			float4_t location;	/**< The location vector */
 		};
 	};

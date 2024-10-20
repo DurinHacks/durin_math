@@ -163,4 +163,14 @@ void float4_to_angle_axis(
 	float3_t* axis
 );
 
+/**
+* @brief float4_t negate the quaternion
+* @details This function is used to negate a quaternion.
+* @param[in] q The float4_t
+* @return The negated quaternion
+*/
+float4_t float4_negate(
+	const float4_t q
+);
+
 #endif // __MATH_FLOAT4_H__
