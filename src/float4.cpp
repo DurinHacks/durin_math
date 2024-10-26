@@ -108,7 +108,12 @@ float3_t float4_rotate_float3(const float3_t vec, const float4_t quat)
 // ************************************************************************************************
 f32 float4_magnitude(const float4_t q)
 {
-	return sqrtf(q.x * q.x + q.y * q.y + q.z * q.z + q.w * q.w);
+	return sqrtf(
+		q.x * q.x +
+		q.y * q.y +
+		q.z * q.z +
+		q.w * q.w
+	);
 }
 // ************************************************************************************************
 void float4_to_angle_axis(
