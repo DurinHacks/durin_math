@@ -41,3 +41,164 @@ float4_t float4x4_get_translation(
 	return matrix->location;
 }
 // ************************************************************************************************
+float4x4_t current_rotation = {
+	1, 0, 0, 0,
+	0, 1, 0, 0,
+	0, 0, 1, 0,
+	0, 0, 0, 1
+};
+// ************************************************************************************************
+void float4x4_rotate(
+	float4x4_t* matrix,
+	const float3_t axis,
+	float angle
+)
+{
+	float4_t translation = matrix->location;
+
+	float cos_angle = cos(angle);
+	float sin_angle = sin(angle);
+
+	float one_minus_cos_angle = 1.0f - cos_angle;
+
+	float4x4_t rotation = float4x4_create(
+		cos_angle + axis.x * axis.x * (one_minus_cos_angle),
+		axis.x * axis.y * (one_minus_cos_angle) - axis.z * sin_angle,
+		axis.x * axis.z * (one_minus_cos_angle) + axis.y * sin_angle,
+		0.0f,
+		axis.y * axis.x * (one_minus_cos_angle) + axis.z * sin_angle,
+		cos_angle + axis.y * axis.y * (one_minus_cos_angle),
+		axis.y * axis.z * (one_minus_cos_angle) - axis.x * sin_angle,
+		0.0f,
+		axis.z * axis.x * (one_minus_cos_angle) - axis.y * sin_angle,
+		axis.z * axis.y * (one_minus_cos_angle) + axis.x * sin_angle,
+		cos_angle + axis.z * axis.z * (one_minus_cos_angle),
+		0.0f,
+		0.0f, 0.0f, 0.0f, 1.0f
+	);
+
+	if (angle == 0.0f) {
+		return;
+	}
+
+	*matrix = current_rotation = float4x4_mul(&current_rotation, &rotation);
+	matrix->location = translation;
+}
+// ************************************************************************************************
+float4x4_t float4x4_mul(
+	const float4x4_t* a,
+	const float4x4_t* b
+)
+{
+	float4x4_t result;
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			result.m[i][j] = a->m[i][0] * b->m[0][j] +
+				a->m[i][1] * b->m[1][j] +
+				a->m[i][2] * b->m[2][j] +
+				a->m[i][3] * b->m[3][j];
+		}
+	}
+	return result;
+}
+// ************************************************************************************************
+void float4x4_normalize(
+	float4x4_t* matrix
+)
+{
+	float4_normalize(&matrix->right);
+	float4_normalize(&matrix->up);
+	float4_normalize(&matrix->forward);
+}
+// ************************************************************************************************
+float4x4_t float4x4_from_quaternion(
+	const float4_t q
+)
+{
+	float4x4_t result;
+	float x = q.x;
+	float y = q.y;
+	float z = q.z;
+	float w = q.w;
+	float x2 = x + x;
+	float y2 = y + y;
+	float z2 = z + z;
+	float xx = x * x2;
+	float xy = x * y2;
+	float xz = x * z2;
+	float yy = y * y2;
+	float yz = y * z2;
+	float zz = z * z2;
+	float wx = w * x2;
+	float wy = w * y2;
+	float wz = w * z2;
+
+	result.m[0][0] = 1.0f - (yy + zz);
+	result.m[0][1] = xy + wz;
+	result.m[0][2] = xz - wy;
+	result.m[0][3] = 0.0f;
+
+	result.m[1][0] = xy - wz;
+	result.m[1][1] = 1.0f - (xx + zz);
+	result.m[1][2] = yz + wx;
+	result.m[1][3] = 0.0f;
+
+	result.m[2][0] = xz + wy;
+	result.m[2][1] = yz - wx;
+	result.m[2][2] = 1.0f - (xx + yy);
+	result.m[2][3] = 0.0f;
+
+	result.m[3][0] = 0.0f;
+	result.m[3][1] = 0.0f;
+	result.m[3][2] = 0.0f;
+	result.m[3][3] = 1.0f;
+
+	return result;
+}
+// ************************************************************************************************
+float4_t float4x4_to_quaternion(
+	const float4x4_t* matrix
+)
+{
+	float4_t result;
+	float trace = matrix->m[0][0] + matrix->m[1][1] + matrix->m[2][2];
+	if (trace > 0.0f)
+	{
+		float s = 0.5f / sqrt(trace + 1.0f);
+		result.w = 0.25f / s;
+		result.x = (matrix->m[2][1] - matrix->m[1][2]) * s;
+		result.y = (matrix->m[0][2] - matrix->m[2][0]) * s;
+		result.z = (matrix->m[1][0] - matrix->m[0][1]) * s;
+	}
+	else
+	{
+		if (matrix->m[0][0] > matrix->m[1][1] && matrix->m[0][0] > matrix->m[2][2])
+		{
+			float s = 2.0f * sqrt(1.0f + matrix->m[0][0] - matrix->m[1][1] - matrix->m[2][2]);
+			result.w = (matrix->m[2][1] - matrix->m[1][2]) / s;
+			result.x = 0.25f * s;
+			result.y = (matrix->m[0][1] + matrix->m[1][0]) / s;
+			result.z = (matrix->m[0][2] + matrix->m[2][0]) / s;
+		}
+		else if (matrix->m[1][1] > matrix->m[2][2])
+		{
+			float s = 2.0f * sqrt(1.0f + matrix->m[1][1] - matrix->m[0][0] - matrix->m[2][2]);
+			result.w = (matrix->m[0][2] - matrix->m[2][0]) / s;
+			result.x = (matrix->m[0][1] + matrix->m[1][0]) / s;
+			result.y = 0.25f * s;
+			result.z = (matrix->m[1][2] + matrix->m[2][1]) / s;
+		}
+		else
+		{
+			float s = 2.0f * sqrt(1.0f + matrix->m[2][2] - matrix->m[0][0] - matrix->m[1][1]);
+			result.w = (matrix->m[1][0] - matrix->m[0][1]) / s;
+			result.x = (matrix->m[0][2] + matrix->m[2][0]) / s;
+			result.y = (matrix->m[1][2] + matrix->m[2][1]) / s;
+			result.z = 0.25f * s;
+		}
+	}
+	return result;
+}
+// ************************************************************************************************

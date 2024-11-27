@@ -145,6 +145,21 @@ void float4_to_angle_axis(
 	}
 }
 // ************************************************************************************************
+float4_t float4_from_angle_axis(
+	const f32 angle,
+	const float3_t axis
+)
+{
+	float4_t result;
+	f32 half_angle = angle * 0.5f;
+	f32 sin_half_angle = sinf(half_angle);
+	result.x = axis.x * sin_half_angle;
+	result.y = axis.y * sin_half_angle;
+	result.z = axis.z * sin_half_angle;
+	result.w = cosf(half_angle);
+	return result;
+}
+// ************************************************************************************************
 float4_t float4_negate(
 	const float4_t q
 )
@@ -155,5 +170,31 @@ float4_t float4_negate(
 	result.z = -q.z;
 	result.w = -q.w;
 	return result;
+}
+// ************************************************************************************************
+float3_t float4_get_float3(
+	const float4_t q
+)
+{
+	float3_t result;
+	result.x = q.x;
+	result.y = q.y;
+	result.z = q.z;
+	return result;
+}
+// ************************************************************************************************
+void float4_normalize(
+	float4_t* q
+)
+{
+	f32 mag = float4_magnitude(*q);
+	if (mag > 0.0f)
+	{
+		f32 inv_mag = 1.0f / mag;
+		q->x *= inv_mag;
+		q->y *= inv_mag;
+		q->z *= inv_mag;
+		q->w *= inv_mag;
+	}
 }
 // ************************************************************************************************

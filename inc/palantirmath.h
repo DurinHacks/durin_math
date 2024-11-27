@@ -23,12 +23,12 @@
 
 /**
  * @brief Clamps a value between a minimum and maximum value.
- * @param[in] fov The value to clamp.
+ * @param[in] value The value to clamp.
  * @param[in] min The minimum value.
  * @param[in] max The maximum value.
  * @return The clamped value.
  */
-float clamp(float fov, float min, float max);
+float clamp(float value, float min, float max);
 
 /**
  * @brief Linearly interpolates between two values.
@@ -45,5 +45,19 @@ float lerp(float a, float b, float t);
  * @return The eased value.
  */
 float in_out_sine(const float t);
+
+/**
+ * @brief Applies the in-out sigmoid easing function to a value.
+ * @param[in] t The value to apply the easing function to.
+ * @return The eased value.
+ */
+float in_out_sigmoid(float x);
+
+/**
+ * @brief Applies the in-exponential easing function to a value.
+ * @param[in] t The value to apply the easing function to.
+ * @return The eased value.
+ */
+float in_expo(float x);
 
 #endif // __MATH_MATHDEFS_H__

@@ -77,4 +77,53 @@ float4_t float4x4_get_translation(
 	const float4x4_t* matrix
 );
 
+/**
+* @brief Rotate the given matrix around an axis by an angle
+* @param[in] matrix The matrix to rotate
+* @param[in] axis The axis to rotate around
+* @param[in] angle The angle to rotate by
+*/
+void float4x4_rotate(
+	float4x4_t* matrix,
+	const float3_t axis,
+	float angle
+);
+
+/**
+* @brief Multiply two matrices
+* @param[in] a The first matrix
+* @param[in] b The second matrix
+* @return The result of the multiplication
+*/
+float4x4_t float4x4_mul(
+	const float4x4_t* a,
+	const float4x4_t* b
+);
+
+/**
+* @brief Normalize the given matrix
+* @param[in] matrix The matrix to normalize
+*/
+void float4x4_normalize(
+	float4x4_t* matrix
+);
+
+/**
+* @brief Get rotation matrix from quaternion
+* @param[in] q The quaternion
+* @return The rotation matrix
+*/
+float4x4_t float4x4_from_quaternion(
+	const float4_t q
+);
+
+/**
+* @brief Get a quaternion from the given matrix
+* @param[in] matrix The matrix to get the quaternion from
+* @return The quaternion
+*/
+float4_t float4x4_to_quaternion(
+	const float4x4_t* matrix
+);
+
 #endif // __MATH_FLOAT4x4_H__

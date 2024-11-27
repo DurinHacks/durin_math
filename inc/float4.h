@@ -12,10 +12,10 @@
 */
 typedef struct float4_t
 {
-	f32 w; /**< The w component of the vector */
 	f32 x; /**< The x component of the vector */
 	f32 y; /**< The y component of the vector */
 	f32 z; /**< The z component of the vector */
+	f32 w; /**< The w component of the vector */
 } float4_t;
 
 /**
@@ -28,10 +28,10 @@ typedef struct float4_t
 * @return The created float4_t
 */
 float4_t float4_create(
-	const f32 w,
 	const f32 x,
 	const f32 y,
-	const f32 z
+	const f32 z,
+	const f32 w
 );
 
 /**
@@ -164,6 +164,18 @@ void float4_to_angle_axis(
 );
 
 /**
+* @brief float4_t quaternion from angle-axis
+* @details This function is used to create a quaternion from an angle-axis representation.
+* @param[in] angle The angle
+* @param[in] axis The axis
+* @return The quaternion
+*/
+float4_t float4_from_angle_axis(
+	const f32 angle,
+	const float3_t axis
+);
+
+/**
 * @brief float4_t negate the quaternion
 * @details This function is used to negate a quaternion.
 * @param[in] q The float4_t
@@ -171,6 +183,26 @@ void float4_to_angle_axis(
 */
 float4_t float4_negate(
 	const float4_t q
+);
+
+/**
+* @brief get float3_t from float4_t
+* @details This function is used to get a float3_t from a float4_t.
+* @param[in] q The float4_t
+* @return The float3_t
+*/
+float3_t float4_get_float3(
+	const float4_t q
+);
+
+/**
+* @brief float4_t normalize
+* @details This function is used to normalize a quaternion.
+* @param[in] q The float4_t
+* @return The normalized quaternion
+*/
+void float4_normalize(
+	float4_t* q
 );
 
 #endif // __MATH_FLOAT4_H__
